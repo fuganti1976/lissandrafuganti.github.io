@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prefeitura de Ponta Grossa</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    html:focus-within {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+
+  <!-- Navbar -->
+  <nav class="bg-blue-900 text-white sticky top-0 z-50 shadow">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Ponta Grossa</h1>
+      <ul class="flex space-x-6 text-sm md:text-base" role="navigation" aria-label="Navegação principal">
+        <li><a href="#home" class="hover:underline focus:outline-none focus:ring-2">Início</a></li>
+        <li><a href="#servicos" class="hover:underline focus:outline-none focus:ring-2">Serviços</a></li>
+        <li><a href="#projetos" class="hover:underline focus:outline-none focus:ring-2">Projetos</a></li>
+        <li><a href="#equipe" class="hover:underline focus:outline-none focus:ring-2">Equipe</a></li>
+        <li><a href="#contato" class="hover:underline focus:outline-none focus:ring-2">Contato</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Seção Início -->
+  <section id="home" class="bg-gradient-to-br from-blue-100 to-white py-16 text-center">
+    <h2 class="text-4xl font-bold text-blue-900">Bem-vindo à Prefeitura de Ponta Grossa</h2>
+    <p class="text-gray-600 mt-4 max-w-xl mx-auto">Transparência, tecnologia e cidadania conectando pessoas e progresso.</p>
+  </section>
+
+  <!-- Seção Serviços -->
+  <section id="servicos" class="py-16 bg-white">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-semibold text-center text-blue-800 mb-10">Serviços ao Cidadão</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        
+        <!-- Card 1 -->
+        <div class="bg-blue-50 rounded-xl p-6 shadow-sm hover:shadow-md transition" aria-label="Protocolo Online">
+          <i data-lucide="file-text" class="w-8 h-8 text-blue-600 mb-3"></i>
+          <h3 class="text-xl font-semibold text-blue-800">Protocolo Online</h3>
+          <p class="text-gray-600 mt-2">Solicite serviços, acompanhe processos e envie documentos sem sair de casa.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-blue-50 rounded-xl p-6 shadow-sm hover:shadow-md transition" aria-label="Iluminação Pública">
+          <i data-lucide="sun" class="w-8 h-8 text-yellow-600 mb-3"></i>
+          <h3 class="text-xl font-semibold text-blue-800">Iluminação Pública</h3>
+          <p class="text-gray-600 mt-2">Abertura de chamados e acompanhamento de manutenção nos bairros.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-blue-50 rounded-xl p-6 shadow-sm hover:shadow-md transition" aria-label="Agendamento Saúde">
+          <i data-lucide="heart-pulse" class="w-8 h-8 text-red-600 mb-3"></i>
+          <h3 class="text-xl font-semibold text-blue-800">Saúde Digital</h3>
+          <p class="text-gray-600 mt-2">Consulta de exames, agendamento de vacinas e acesso ao prontuário eletrônico.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Projetos -->
+  <section id="projetos" class="bg-gray-50 py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-3xl font-semibold text-center text-blue-800 mb-10">Projetos em Destaque</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <h3 class="text-xl font-semibold text-blue-700">Cidade Inteligente</h3>
+          <p class="text-gray-600 mt-2">Uso de IoT, sensores urbanos, semáforos inteligentes e automação de dados públicos.</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-xl shadow-md">
+          <h3 class="text-xl font-semibold text-blue-700">Digitalização de Arquivos</h3>
+          <p class="text-gray-600 mt-2">Transformação de documentos físicos em arquivos digitais acessíveis via plataforma web.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Equipe -->
+  <section id="equipe" class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-semibold text-blue-800 mb-10">Equipe de Tecnologia</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        
+        <div class="bg-gray-100 p-6 rounded-xl">
+          <i data-lucide="shield-check" class="w-6 h-6 mx-auto text-blue-600 mb-2"></i>
+          <h3 class="font-semibold text-gray-700">Coordenador Luiz Gonçalvez - Suporte</h3>
+          <p class="text-sm text-gray-500">Suporte técnico.</p>
+        </div>
+
+        <div class="bg-gray-100 p-6 rounded-xl">
+          <i data-lucide="server" class="w-6 h-6 mx-auto text-green-600 mb-2"></i>
+          <h3 class="font-semibold text-gray-700">Coordenador Marlos Boutin - Infraestrutura</h3>
+          <p class="text-sm text-gray-500">Servidores, redes e conectividade dos prédios públicos.</p>
+        </div>
+
+        <div class="bg-gray-100 p-6 rounded-xl">
+          <i data-lucide="file-code" class="w-6 h-6 mx-auto text-purple-600 mb-2"></i>
+          <h3 class="font-semibold text-gray-700">Coordenador Lucas Antiqueira - Analista de Sistemas</h3>
+          <p class="text-sm text-gray-500">Gestão de dados, análise de sistemas internos e integração entre setores.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção Contato -->
+  <section id="contato" class="bg-blue-50 py-16">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-semibold text-blue-800">Fale Conosco</h2>
+      <p class="text-gray-600 mt-4 mb-8">Entre em contato com a equipe de tecnologia ou envie sugestões para melhoria dos serviços.</p>
+      <a href="mailto:ti@pontagrossa.pr.gov.br" class="inline-block bg-blue-700 text-white px-6 py-3 rounded-xl hover:bg-blue-800 focus:ring-2 focus:outline-none" aria-label="Enviar email para setor de TI">
+        Enviar E-mail
+      </a>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="bg-blue-900 text-white text-sm text-center py-6">
+    © 2025 Prefeitura de Ponta Grossa — Secretaria de Tecnologia da Informação
+  </footer>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

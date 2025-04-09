@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio - Ilustração Moderna</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-gradient-to-tr from-blue-50 via-white to-purple-100 min-h-screen text-gray-800 font-sans">
+  
+  <header class="text-center py-10">
+    <h1 class="text-4xl font-bold mb-2 text-purple-700">Meu Portfólio</h1>
+    <p class="text-lg text-gray-600">Trabalhos criativos, modernos e com amor ao detalhe</p>
+  </header>
+
+  <section class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+    
+    <!-- Card 1 -->
+    <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition">
+      <div class="flex items-center space-x-4 mb-4">
+        <div class="bg-purple-100 p-3 rounded-full">
+          <i data-lucide="palette" class="w-6 h-6 text-purple-600"></i>
+        </div>
+        <h2 class="text-xl font-semibold text-purple-700">Design Gráfico</h2>
+      </div>
+      <p class="text-gray-600">Criação de identidade visual, banners e posts para redes sociais com foco em estética e propósito.</p>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition">
+      <div class="flex items-center space-x-4 mb-4">
+        <div class="bg-blue-100 p-3 rounded-full">
+          <i data-lucide="code" class="w-6 h-6 text-blue-600"></i>
+        </div>
+        <h2 class="text-xl font-semibold text-blue-700">Desenvolvimento Web</h2>
+      </div>
+      <p class="text-gray-600">Sites modernos, responsivos e otimizados para performance e usabilidade.</p>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="bg-white rounded-2xl shadow-lg p-6 hover:shadow-xl transition">
+      <div class="flex items-center space-x-4 mb-4">
+        <div class="bg-green-100 p-3 rounded-full">
+          <i data-lucide="smartphone" class="w-6 h-6 text-green-600"></i>
+        </div>
+        <h2 class="text-xl font-semibold text-green-700">Apps Mobile</h2>
+      </div>
+      <p class="text-gray-600">Aplicativos intuitivos e com design responsivo para Android e iOS.</p>
+    </div>
+
+  </section>
+
+  <footer class="text-center mt-16 py-6 text-sm text-gray-500">
+    Feito com ❤️ e café – 2025
+  </footer>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

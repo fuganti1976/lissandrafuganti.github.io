@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Departamento de Informática</title>
+  <style>
+    :root {
+      --cor-primaria: #a8dadc;
+      --cor-secundaria: #f1faee;
+      --cor-texto: #1d3557;
+      --cor-destaque: #ffb4a2;
+      --cor-menu: #457b9d;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--cor-secundaria);
+      color: var(--cor-texto);
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--cor-menu);
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      background-color: var(--cor-primaria);
+      padding: 0.75rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--cor-texto);
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: var(--cor-destaque);
+    }
+
+    main {
+      padding: 2rem;
+    }
+
+    section {
+      background-color: #ffffffcc;
+      padding: 2rem;
+      margin: 1.5rem auto;
+      border-radius: 12px;
+      max-width: 900px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1, h2 {
+      color: var(--cor-texto);
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 1rem;
+    }
+
+    ul li::before {
+      content: "✔️ ";
+      color: var(--cor-destaque);
+    }
+
+    .equipe {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .membro {
+      background-color: #fcefee;
+      border-radius: 10px;
+      padding: 1rem;
+      width: 200px;
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input, textarea {
+      padding: 0.75rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: var(--cor-destaque);
+      color: white;
+      border: none;
+      padding: 0.75rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ffa38a;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: var(--cor-menu);
+      color: white;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+      }
+
+      .equipe {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      section {
+        margin: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Departamento de Informática</h1>
+  </header>
+
+  <nav aria-label="Menu principal">
+    <a href="#">Início</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#equipe">Equipe</a>
+    <a href="#projetos">Projetos</a>
+    <a href="#contato">Contato</a>
+  </nav>
+
+  <main>
+    <section id="sobre">
+      <h2>Sobre Nós</h2>
+      <p>O Departamento de Informática atua com inovação, responsabilidade e tecnologia de ponta para garantir o bom funcionamento dos sistemas institucionais. Oferecemos suporte técnico, desenvolvimento de sistemas e manutenção de infraestrutura.</p>
+    </section>
+
+    <section id="servicos">
+      <h2>Serviços Oferecidos</h2>
+      <ul>
+        <li>Suporte técnico para servidores e colaboradores</li>
+        <li>Desenvolvimento e manutenção de sistemas internos</li>
+        <li>Gerenciamento de rede e segurança da informação</li>
+        <li>Treinamentos em ferramentas digitais</li>
+        <li>Gestão de banco de dados</li>
+      </ul>
+    </section>
+
+    <section id="equipe">
+      <h2>Nossa Equipe</h2>
+      <div class="equipe">
+        <div class="membro">
+          <h3>Lucas Ferreira</h3>
+          <p>Desenvolvedor Full Stack</p>
+        </div>
+        <div class="membro">
+          <h3>Ana Souza</h3>
+          <p>Analista de Sistemas</p>
+        </div>
+        <div class="membro">
+          <h3>Paulo Lima</h3>
+          <p>Suporte Técnico</p>
+        </div>
+        <div class="membro">
+          <h3>Maria Clara</h3>
+          <p>Segurança da Informação</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projetos">
+      <h2>Projetos Recentes</h2>
+      <p>Estamos constantemente desenvolvendo soluções digitais para melhorar os serviços públicos. Alguns de nossos últimos projetos:</p>
+      <ul>
+        <li>Sistema de Protocolo Digital</li>
+        <li>Portal de Atendimento ao Cidadão</li>
+        <li>Automação de Relatórios Gerenciais</li>
+      </ul>
+    </section>
+
+    <section id="contato">
+      <h2>Fale Conosco</h2>
+      <form aria-label="Formulário de contato">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="exemplo@dominio.com" required>
+
+        <label for="mensagem">Mensagem</label>
+        <textarea id="mensagem" name="mensagem" rows="5" placeholder="Digite sua mensagem" required></textarea>
+
+        <button type="submit">Enviar Mensagem</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Departamento de Informática - Todos os direitos reservados
+  </footer>
+</body>
+</html>

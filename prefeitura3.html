@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prefeitura de Ponta Grossa</title>
+  <style>
+    :root {
+      --azul-claro: #e0f2ff;
+      --azul-medio: #90caf9;
+      --azul-escuro: #1565c0;
+      --azul-profundo: #0d47a1;
+      --azul-destaque: #42a5f5;
+      --branco: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--azul-claro);
+      color: var(--azul-profundo);
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--azul-escuro);
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      background-color: var(--azul-medio);
+      padding: 0.75rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--azul-profundo);
+      font-weight: bold;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: var(--azul-destaque);
+      color: white;
+    }
+
+    main {
+      padding: 2rem;
+    }
+
+    section {
+      background-color: var(--branco);
+      padding: 2rem;
+      margin: 1.5rem auto;
+      border-radius: 12px;
+      max-width: 900px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1, h2 {
+      color: var(--azul-profundo);
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 1rem;
+    }
+
+    ul li::before {
+      content: "📘 ";
+      color: var(--azul-destaque);
+    }
+
+    .secretarias {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .card {
+      background-color: var(--azul-claro);
+      border-left: 5px solid var(--azul-destaque);
+      border-radius: 10px;
+      padding: 1rem;
+      width: 200px;
+      text-align: left;
+      box-shadow: 2px 2px 8px #ccc;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input, textarea {
+      padding: 0.75rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: var(--azul-destaque);
+      color: white;
+      border: none;
+      padding: 0.75rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: var(--azul-escuro);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background-color: var(--azul-escuro);
+      color: white;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+      }
+
+      .secretarias {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      section {
+        margin: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Prefeitura de Ponta Grossa</h1>
+    <p>Trabalhando por uma cidade mais humana e inovadora</p>
+  </header>
+
+  <nav aria-label="Menu principal">
+    <a href="#">Início</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#secretarias">Secretarias</a>
+    <a href="#noticias">Notícias</a>
+    <a href="#contato">Contato</a>
+  </nav>
+
+  <main>
+    <section id="sobre">
+      <h2>Sobre a Prefeitura</h2>
+      <p>A Prefeitura Municipal de Ponta Grossa atua para promover o bem-estar dos cidadãos, a inovação nos serviços públicos e o desenvolvimento sustentável da cidade. Com uma gestão participativa, buscamos aproximar o governo da população.</p>
+    </section>
+
+    <section id="servicos">
+      <h2>Serviços ao Cidadão</h2>
+      <ul>
+        <li>Emissão de boletos e tributos</li>
+        <li>Agendamento de serviços municipais</li>
+        <li>Consulta de protocolos</li>
+        <li>Solicitação de iluminação pública</li>
+        <li>Ouvidoria e sugestões</li>
+      </ul>
+    </section>
+
+    <section id="secretarias">
+      <h2>Secretarias Municipais</h2>
+      <div class="secretarias">
+        <div class="card">
+          <h3>Saúde</h3>
+          <p>Gestão de unidades, vacinação e atenção básica.</p>
+        </div>
+        <div class="card">
+          <h3>Educação</h3>
+          <p>Educação infantil, fundamental e projetos pedagógicos.</p>
+        </div>
+        <div class="card">
+          <h3>Obras</h3>
+          <p>Infraestrutura urbana, pavimentação e manutenção.</p>
+        </div>
+        <div class="card">
+          <h3>Assistência Social</h3>
+          <p>Programas de apoio às famílias e inclusão.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="noticias">
+      <h2>Notícias Recentes</h2>
+      <ul>
+        <li>Nova unidade de saúde será inaugurada no bairro Nova Rússia</li>
+        <li>Prefeitura lança aplicativo para solicitação de serviços urbanos</li>
+        <li>Calendário de vacinação contra a gripe está disponível</li>
+      </ul>
+    </section>
+
+    <section id="contato">
+      <h2>Fale Conosco</h2>
+      <form aria-label="Formulário de contato">
+        <label for="nome">Nome</label>
+        <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="exemplo@dominio.com" required>
+
+        <label for="mensagem">Mensagem</label>
+        <textarea id="mensagem" name="mensagem" rows="5" placeholder="Digite sua mensagem" required></textarea>
+
+        <button type="submit">Enviar Mensagem</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Prefeitura de Ponta Grossa – Desenvolvido pelo Departamento de Informática
+  </footer>
+</body>
+</html>

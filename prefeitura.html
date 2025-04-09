@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Prefeitura de Ponta Grossa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/lucide-static@latest/font/lucide.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #6DAEDB;
+      --secondary: #A3D2CA;
+      --background: #F2F2F2;
+      --text: #333;
+      --contrast: #000;
+      --white: #fff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+      background-color: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 16px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    header {
+      background-color: var(--primary);
+      color: white;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    header img {
+      height: 50px;
+      margin-right: 1rem;
+    }
+
+    .header-title {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    nav {
+      background-color: var(--secondary);
+      padding: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex: 1 1 100px;
+      text-align: center;
+    }
+
+    .busca-container {
+      background-color: var(--background);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .busca-container form {
+      display: flex;
+      max-width: 600px;
+      width: 100%;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .busca-container input[type="text"] {
+      flex: 1 1 200px;
+      padding: 0.5rem 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    .busca-container button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .busca-container button:hover {
+      background-color: #5d9cc4;
+    }
+
+    main {
+      padding: 2rem;
+      display: grid;
+      gap: 2rem;
+    }
+
+    section {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    footer {
+      text-align: center;
+      background-color: var(--primary);
+      color: white;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+
+    .acessibilidade {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 1000;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .acessibilidade button {
+      background-color: #f2f2f2;
+      color: #000;
+      border: 2px solid #ccc;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .acessibilidade button:hover {
+      background-color: var(--primary);
+      color: #fff;
+    }
+
+    .servicos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      background-color: var(--secondary);
+      padding: 1rem;
+      border-radius: 8px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card i {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .header-title {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .busca-container form {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="acessibilidade">
+    <button onclick="document.body.style.fontSize='18px'"><i class="lucide lucide-plus"></i> A+</button>
+    <button onclick="document.body.style.fontSize='14px'"><i class="lucide lucide-minus"></i> A-</button>
+    <button onclick="toggleContraste()"><i class="lucide lucide-eye-off"></i> Contraste</button>
+  </div>
+
+  <header>
+    <div class="header-title">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Bras%C3%A3o_de_Ponta_Grossa.svg/100px-Bras%C3%A3o_de_Ponta_Grossa.svg.png" alt="Brasão de Ponta Grossa">
+      <div>
+        <h1>Prefeitura de Ponta Grossa</h1>
+        <p>Portal Oficial</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="busca-container">
+    <form action="#" method="GET">
+      <input type="text" name="q" placeholder="Buscar no site..." aria-label="Buscar">
+      <button type="submit"><i class="lucide lucide-search"></i> Buscar</button>
+    </form>
+  </div>
+
+  <nav>
+    <a href="#servicos"><i class="lucide lucide-construction"></i>Serviços</a>
+    <a href="#noticias"><i class="lucide lucide-newspaper"></i>Notícias</a>
+    <a href="#transparencia"><i class="lucide lucide-folder-open"></i>Transparência</a>
+    <a href="#contato"><i class="lucide lucide-phone"></i>Contato</a>
+    <a href="#turismo"><i class="lucide lucide-map"></i>Turismo</a>
+    <a href="#educacao"><i class="lucide lucide-graduation-cap"></i>Educação</a>
+    <a href="#saude"><i class="lucide lucide-heart-pulse"></i>Saúde</a>
+    <a href="#ouvidoria"><i class="lucide lucide-message-square"></i>Ouvidoria</a>
+  </nav>
+
+  <main>
+    <section id="servicos">
+      <h2>Serviços Online</h2>
+      <div class="servicos-grid">
+        <div class="card">
+          <i class="lucide lucide-home"></i>
+          <p>Consulta de IPTU</p>
+        </div>
+        <div class="card">
+          <i class="lucide lucide-file-text"></i>
+          <p>Nota Fiscal Eletrônica</p>
+        </div>
+        <div class="card">
+          <i class="lucide lucide-building-2"></i>
+          <p>Alvarás e Licenças</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="noticias">
+      <h2>Últimas Notícias</h2>
+      <p>Confira as ações da prefeitura, obras e eventos.</p>
+    </section>
+
+    <section id="transparencia">
+      <h2>Transparência</h2>
+      <p>Acompanhe os gastos, receitas e contratos do município.</p>
+    </section>
+
+    <section id="contato">
+      <h2>Fale Conosco</h2>
+      <p><i class="lucide lucide-mail"></i> contato@pontagrossa.pr.gov.br</p>
+      <p><i class="lucide lucide-phone"></i> (42) 3220-1000</p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Prefeitura Municipal de Ponta Grossa
+  </footer>
+
+  <script>
+    function toggleContraste() {
+      document.body.classList.toggle('contraste');
+      if (document.body.classList.contains('contraste')) {
+        document.body.style.backgroundColor = '#000';
+        document.body.style.color = '#fff';
+      } else {
+        document.body.style.backgroundColor = 'var(--background)';
+        document.body.style.color = 'var(--text)';
+      }
+    }
+  </script>
+</body>
+</html>
