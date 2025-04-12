@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Tarô do Destino</title>
+  <style>
+    body {
+      background: linear-gradient(#2c2c54, #40407a);
+      color: #fff;
+      font-family: 'Georgia', serif;
+      text-align: center;
+      padding: 30px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      background: #706fd3;
+      border: none;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .carta {
+      margin-top: 30px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px #aaa;
+    }
+    h2 {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔮 Tarô do Destino</h1>
+  <p>Clique no botão para revelar a mensagem do Tarô</p>
+  <button onclick="sortearCarta()">Tirar uma Carta</button>
+  
+  <div class="carta" id="resultado"></div>
+
+  <script>
+    const cartas = [
+      { nome: "O Louco", significado: "Início de uma nova jornada, espontaneidade, liberdade. Confie no universo e abrace o desconhecido." },
+      { nome: "O Mago", significado: "Poder de manifestação, criatividade, iniciativa. Você tem todas as ferramentas para começar algo novo com sucesso." },
+      { nome: "A Sacerdotisa", significado: "Mistério, intuição, conhecimento oculto. Confie em sua sabedoria interior e ouça o silêncio." },
+      { nome: "A Imperatriz", significado: "Fertilidade, abundância, beleza. Período fértil para ideias, projetos ou até gravidez." },
+      { nome: "O Imperador", significado: "Autoridade, estrutura, liderança. Tempo de assumir o controle com maturidade e disciplina." },
+      { nome: "O Hierofante", significado: "Tradições, espiritualidade, aprendizado. Busque sabedoria com mestres e guias espirituais." },
+      { nome: "Os Amantes", significado: "Escolhas importantes, união, amor verdadeiro. Decida com o coração alinhado à razão." },
+      { nome: "O Carro", significado: "Determinação, conquista, superação. Avance com confiança rumo ao seu objetivo." },
+      { nome: "A Força", significado: "Coragem, domínio das emoções, compaixão. Sua força vem da calma e da compreensão." },
+      { nome: "O Eremita", significado: "Isolamento necessário, busca interior, sabedoria. Tempo de introspecção e reflexão." },
+      { nome: "A Roda da Fortuna", significado: "Mudanças inesperadas, destino em movimento. Aceite o fluxo da vida com fé." },
+      { nome: "A Justiça", significado: "Equilíbrio, verdade, responsabilidade. Cuidado com decisões — colhemos o que plantamos." },
+      { nome: "O Enforcado", significado: "Pausa, sacrifício, mudança de perspectiva. Veja as coisas por outro ângulo antes de agir." },
+      { nome: "A Morte", significado: "Transformação profunda, fim de um ciclo. Deixe ir o velho para que o novo renasça." },
+      { nome: "A Temperança", significado: "Equilíbrio, harmonia, cura. Evite extremos, busque moderação e paz interior." },
+      { nome: "O Diabo", significado: "Desejos intensos, vícios, ilusões. Rompa correntes que te aprisionam emocionalmente." },
+      { nome: "A Torre", significado: "Ruptura, revelações, libertação. Algo precisa cair para que você reconstrua com verdade." },
+      { nome: "A Estrela", significado: "Esperança, inspiração, conexão espiritual. Confie no futuro com leveza e fé renovada." },
+      { nome: "A Lua", significado: "Ilusões, confusão, sensibilidade. Nem tudo está claro — escute seus sonhos e intuições." },
+      { nome: "O Sol", significado: "Clareza, sucesso, felicidade. Tudo caminha para a realização e alegria plena." },
+      { nome: "O Julgamento", significado: "Despertar, renascimento, karma. Momento de avaliar o passado e recomeçar." },
+      { nome: "O Mundo", significado: "Conclusão, realização, plenitude. Um ciclo se fecha com vitória e paz interior." }
+  { nome: "Ás de Copas", significado: "Amor, novos sentimentos, intuição. Início de algo emocionalmente positivo." },
+  { nome: "Dois de Copas", significado: "Parceria, união, conexão emocional. Relacionamentos harmoniosos." },
+  { nome: "Três de Copas", significado: "Celebração, amizade, comunhão. Alegria compartilhada." },
+  { nome: "Quatro de Copas", significado: "Tédio, introspecção, insatisfação emocional. Recusa em ver oportunidades." },
+  { nome: "Cinco de Copas", significado: "Perda, arrependimento, mágoa. Foco no que foi perdido." },
+  { nome: "Seis de Copas", significado: "Nostalgia, memórias, infância. Retorno ao passado." },
+  { nome: "Sete de Copas", significado: "Ilusões, escolhas, fantasia. Muitas opções, cuidado com enganos." },
+  { nome: "Oito de Copas", significado: "Desapego, busca interior, deixar para trás. Seguir novos caminhos." },
+  { nome: "Nove de Copas", significado: "Satisfação, desejo realizado, prazer. Momento de contentamento." },
+  { nome: "Dez de Copas", significado: "Felicidade familiar, harmonia, realização emocional." },
+  { nome: "Pajem de Copas", significado: "Mensagem emocional, sensibilidade, intuição jovem." },
+  { nome: "Cavaleiro de Copas", significado: "Romance, charme, proposta amorosa. Movimento emocional." },
+  { nome: "Rainha de Copas", significado: "Compaixão, intuição, apoio emocional. Amor incondicional." },
+  { nome: "Rei de Copas", significado: "Maturidade emocional, equilíbrio, conselheiro compassivo." },
+
+  { nome: "Ás de Paus", significado: "Inspiração, novos começos, criatividade. Energia de ação." },
+  { nome: "Dois de Paus", significado: "Planejamento, visão, escolhas. Expandir horizontes." },
+  { nome: "Três de Paus", significado: "Progresso, oportunidades, expansão. Resultados surgindo." },
+  { nome: "Quatro de Paus", significado: "Celebração, estabilidade, lar. Recompensa por esforço." },
+  { nome: "Cinco de Paus", significado: "Conflito, competição, desafios. Necessidade de se destacar." },
+  { nome: "Seis de Paus", significado: "Vitória, reconhecimento, sucesso público." },
+  { nome: "Sete de Paus", significado: "Defesa, coragem, manter posição." },
+  { nome: "Oito de Paus", significado: "Ação rápida, progresso, movimento." },
+  { nome: "Nove de Paus", significado: "Resiliência, proteção, vigilância." },
+  { nome: "Dez de Paus", significado: "Sobrecarga, responsabilidade, peso." },
+  { nome: "Pajem de Paus", significado: "Entusiasmo, mensagem criativa, descoberta." },
+  { nome: "Cavaleiro de Paus", significado: "Aventura, impulsividade, ação determinada." },
+  { nome: "Rainha de Paus", significado: "Confiança, liderança, charme. Inspiração feminina." },
+  { nome: "Rei de Paus", significado: "Visão, liderança, empreendedorismo." },
+
+  { nome: "Ás de Espadas", significado: "Clareza mental, verdade, justiça. Novo começo intelectual." },
+  { nome: "Dois de Espadas", significado: "Decisão difícil, impasse, equilíbrio delicado." },
+  { nome: "Três de Espadas", significado: "Dor, separação, mágoa emocional." },
+  { nome: "Quatro de Espadas", significado: "Descanso, recuperação, pausa necessária." },
+  { nome: "Cinco de Espadas", significado: "Conflito, derrota, tensão. Vitória amarga." },
+  { nome: "Seis de Espadas", significado: "Transição, mudança, alívio." },
+  { nome: "Sete de Espadas", significado: "Engano, furtividade, estratégias escondidas." },
+  { nome: "Oito de Espadas", significado: "Restrição, medo, prisão mental." },
+  { nome: "Nove de Espadas", significado: "Ansiedade, pesadelos, preocupação excessiva." },
+  { nome: "Dez de Espadas", significado: "Fim doloroso, traição, colapso." },
+  { nome: "Pajem de Espadas", significado: "Curiosidade, vigilância, mente ativa." },
+  { nome: "Cavaleiro de Espadas", significado: "Ação veloz, determinação, impetuosidade." },
+  { nome: "Rainha de Espadas", significado: "Intelecto, lógica, comunicação direta." },
+  { nome: "Rei de Espadas", significado: "Autoridade mental, razão, justiça." },
+
+  { nome: "Ás de Ouros", significado: "Novos começos materiais, oportunidades, prosperidade." },
+  { nome: "Dois de Ouros", significado: "Equilíbrio financeiro, adaptação, prioridades." },
+  { nome: "Três de Ouros", significado: "Colaboração, aprendizado, trabalho em equipe." },
+  { nome: "Quatro de Ouros", significado: "Apego, controle, segurança financeira." },
+  { nome: "Cinco de Ouros", significado: "Perda material, dificuldades, isolamento." },
+  { nome: "Seis de Ouros", significado: "Generosidade, ajuda, equilíbrio entre dar e receber." },
+  { nome: "Sete de Ouros", significado: "Paciência, progresso lento, avaliação." },
+  { nome: "Oito de Ouros", significado: "Trabalho duro, habilidade, aperfeiçoamento." },
+  { nome: "Nove de Ouros", significado: "Conquista, luxo, independência financeira." },
+  { nome: "Dez de Ouros", significado: "Estabilidade, legado, sucesso duradouro." },
+  { nome: "Pajem de Ouros", significado: "Estudo, novas oportunidades, foco material." },
+  { nome: "Cavaleiro de Ouros", significado: "Persistência, responsabilidade, progresso lento." },
+  { nome: "Rainha de Ouros", significado: "Cuidado, segurança, prosperidade prática." },
+  { nome: "Rei de Ouros", significado: "Sucesso material, estabilidade, liderança no mundo financeiro." }     
+    ];
+
+    function sortearCarta() {
+      const carta = cartas[Math.floor(Math.random() * cartas.length)];
+      document.getElementById("resultado").innerHTML = `
+        <h2>${carta.nome}</h2>
+        <p>${carta.significado}</p>
+      `;
+    }
+  </script>
+</body>
+</html>
