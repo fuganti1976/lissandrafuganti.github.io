@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oráculo Astrológico</title>
+  <style>
+    body {
+      background: radial-gradient(ellipse at center, #1e0033 0%, #000000 100%);
+      color: #fff;
+      font-family: 'Georgia', serif;
+      text-align: center;
+      padding: 40px;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid #8a2be2;
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 0 15px #8a2be2;
+    }
+    input, button {
+      padding: 10px;
+      margin: 10px;
+      width: 80%;
+      border-radius: 10px;
+      border: none;
+      font-size: 1rem;
+    }
+    button {
+      background-color: #8a2be2;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #6a1ab0;
+    }
+    .hidden {
+      display: none;
+    }
+    .credits {
+      margin-top: 20px;
+      font-size: 0.8rem;
+      color: #bbb;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔮 Oráculo Astrológico 🔮</h1>
+    <p>Descubra o seu passado, presente e futuro com base na sua data de nascimento.</p>
+    <form id="astroForm">
+      <label>Data de nascimento:</label>
+      <input type="date" id="birthDate" required><br>
+      <label>Hora de nascimento:</label>
+      <input type="time" id="birthTime" required><br>
+      <label>Local de nascimento:</label>
+      <input type="text" id="birthPlace" placeholder="Cidade, País" required><br>
+      <button type="submit">Revelar Destino</button>
+    </form>
+    <div id="result" class="hidden">
+      <h2>✨ Sua Leitura Astrológica ✨</h2>
+      <p id="past"></p>
+      <p id="present"></p>
+      <p id="future"></p>
+    </div>
+    <div class="credits">
+      Projeto criado por Lissandra Kruse Fuganti - UTFPR 2024.
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("astroForm");
+    const result = document.getElementById("result");
+    const pastEl = document.getElementById("past");
+    const presentEl = document.getElementById("present");
+    const futureEl = document.getElementById("future");
+
+    const signos = [
+      { nome: "Áries",      inicio: "03-21", fim: "04-19" },
+      { nome: "Touro",      inicio: "04-20", fim: "05-20" },
+      { nome: "Gêmeos",     inicio: "05-21", fim: "06-20" },
+      { nome: "Câncer",     inicio: "06-21", fim: "07-22" },
+      { nome: "Leão",       inicio: "07-23", fim: "08-22" },
+      { nome: "Virgem",     inicio: "08-23", fim: "09-22" },
+      { nome: "Libra",      inicio: "09-23", fim: "10-22" },
+      { nome: "Escorpião",  inicio: "10-23", fim: "11-21" },
+      { nome: "Sagitário",  inicio: "11-22", fim: "12-21" },
+      { nome: "Capricórnio",inicio: "12-22", fim: "01-19" },
+      { nome: "Aquário",    inicio: "01-20", fim: "02-18" },
+      { nome: "Peixes",     inicio: "02-19", fim: "03-20" },
+    ];
+
+    function descobrirSigno(dataStr) {
+      const data = new Date(dataStr);
+      const mes = (data.getMonth() + 1).toString().padStart(2, '0');
+      const dia = data.getDate().toString().padStart(2, '0');
+      const mmdd = `${mes}-${dia}`;
+
+      for (let s of signos) {
+        if (
+          (s.inicio <= mmdd && mmdd <= s.fim) ||
+          (s.inicio > s.fim && (mmdd >= s.inicio || mmdd <= s.fim))
+        ) {
+          return s.nome;
+        }
+      }
+      return "Desconhecido";
+    }
+
+    function gerarMensagens(signo) {
+      const mensagens = {
+        "Áries": ["Você superou grandes desafios com coragem.","Seu presente pede ação e iniciativa.","O futuro reserva vitórias para quem ousar."],
+        "Touro": ["Sua história é marcada por resistência e estabilidade.","O momento atual pede conexão com o corpo e prazer.","Em breve, uma nova fonte de segurança surgirá."],
+        "Gêmeos": ["Você sempre buscou conhecimento e troca.","Agora é hora de comunicar suas ideias ao mundo.","Novos encontros trarão sabedoria inesperada."],
+        "Câncer": ["Você carregou o passado como parte de sua alma.","O presente pede acolhimento e conexão emocional.","O futuro trará crescimento através da família e lar."],
+        "Leão": ["Você nasceu para brilhar e liderar.","Este é um momento para afirmar sua luz.","O universo prepara aplausos e conquistas."],
+        "Virgem": ["Você construiu sua história com dedicação.","Agora é hora de organizar e servir com propósito.","O futuro trará recompensas por sua disciplina."],
+        "Libra": ["Seu passado foi guiado pela busca por harmonia.","O presente pede equilíbrio em suas relações.","Em breve, alianças importantes serão formadas."],
+        "Escorpião": ["Você enfrentou sombras e renasceu várias vezes.","Agora é tempo de transformar dor em poder.","O futuro revela mistérios e grandes curas."],
+        "Sagitário": ["Você sempre foi movido pela fé e aventura.","Neste momento, busque novos horizontes.","Grandes viagens – físicas ou espirituais – se aproximam."],
+        "Capricórnio": ["Você construiu com esforço e responsabilidade.","Hoje é tempo de assumir o comando.","O futuro trará reconhecimento duradouro."],
+        "Aquário": ["Você sempre foi diferente e visionário.","O presente pede inovação e autenticidade.","Um futuro revolucionário se desenha no seu caminho."],
+        "Peixes": ["Sua alma viveu sonhos e intuições profundas.","Este é o momento de confiar no invisível.","Transformações espirituais estão chegando."]
+      };
+
+      return mensagens[signo] || ["Passado misterioso", "Presente indefinido", "Futuro incerto"];
+    }
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const data = document.getElementById("birthDate").value;
+      const signo = descobrirSigno(data);
+      const [passado, presente, futuro] = gerarMensagens(signo);
+
+      pastEl.textContent = `🔙 Passado (${signo}): ${passado}`;
+      presentEl.textContent = `🔛 Presente: ${presente}`;
+      futureEl.textContent = `🔮 Futuro: ${futuro}`;
+      result.classList.remove("hidden");
+    });
+  </script>
+</body>
+</html>
