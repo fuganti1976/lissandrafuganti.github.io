@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Leitura de Tarot Cigano</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 2em;
+      background: #f5efe6;
+    }
+    .carta {
+      margin: 1em;
+      padding: 1em;
+      border: 1px solid #ccc;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    }
+    button {
+      padding: 1em;
+      font-size: 1em;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔮 Leitura de Tarot Cigano</h1>
+  <p>Clique no botão para revelar sua leitura:</p>
+  <button onclick="lerCartas()">Tirar Cartas</button>
+
+  <div id="resultado"></div>
+
+  <script>
+    const cartas = [
+      {
+        nome: "O Cavaleiro",
+        significado: "Essa carta representa movimento, ação e chegada de novidades. Ela anuncia uma visita inesperada, uma mensagem importante ou um convite que trará mudanças. Se você estava esperando por uma resposta, ela está a caminho."
+      },
+      {
+        nome: "O Trevo",
+        significado: "O Trevo simboliza pequenas oportunidades e sorte passageira. Pode indicar obstáculos temporários que, com leveza e fé, podem ser superados. Aproveite o momento com sabedoria e mantenha o bom humor diante dos imprevistos."
+      },
+      {
+        nome: "O Navio",
+        significado: "Representa viagens, mudanças de ambiente ou novos rumos na vida. Pode ser tanto uma mudança física quanto emocional. Este é um bom momento para explorar novos horizontes e expandir seus limites."
+      },
+      {
+        nome: "A Casa",
+        significado: "Esta carta remete à família, estrutura, segurança e raízes. Pode indicar que o foco deve estar no seu lar ou em sua base emocional. Cuide do seu espaço interior e valorize quem está ao seu redor."
+      },
+      {
+        nome: "A Árvore",
+        significado: "A Árvore fala de crescimento, saúde e conexões espirituais profundas. Um bom sinal para questões de bem-estar e evolução pessoal. Plante boas sementes agora para colher frutos mais tarde."
+      },
+      {
+        nome: "As Nuvens",
+        significado: "Simboliza confusão, dúvidas e incertezas passageiras. O momento pede cautela. Evite decisões importantes por agora. Espere as nuvens se dissiparem para enxergar com mais clareza."
+      },
+      {
+        nome: "A Serpente",
+        significado: "A Serpente pode indicar sedução, traição ou uma pessoa manipuladora. Mas também representa sabedoria oculta e intuição aguçada. Preste atenção nos seus instintos. Nem tudo é o que parece ser."
+      },
+      {
+        nome: "O Caixão",
+        significado: "Fala de encerramentos, transformações e renascimentos. É hora de deixar o passado para trás. Algo precisa morrer para que algo novo possa nascer. Liberte-se do que te prende."
+      },
+      {
+        nome: "A Estrela",
+        significado: "Essa carta é um sinal de esperança, espiritualidade e proteção divina. Indica que você está no caminho certo. Confie nos seus sonhos e mantenha a fé, mesmo diante das dificuldades."
+      },
+      {
+        nome: "O Sol",
+        significado: "Simboliza sucesso, alegria, energia positiva e vitalidade. É um sinal claro de que dias melhores estão chegando. Acredite em você e siga em frente com coragem. A vitória é certa."
+      }
+    ];
+    
+    
+
+    function lerCartas() {
+      const resultado = document.getElementById("resultado");
+      resultado.innerHTML = "";
+
+      const sorteadas = [];
+      while (sorteadas.length < 3) {
+        const indice = Math.floor(Math.random() * cartas.length);
+        if (!sorteadas.includes(indice)) {
+          sorteadas.push(indice);
+        }
+      }
+
+      const posicoes = ["Passado", "Presente", "Futuro"];
+      sorteadas.forEach((indice, i) => {
+        const carta = cartas[indice];
+        const div = document.createElement("div");
+        div.className = "carta";
+        div.innerHTML = `<strong>${posicoes[i]}:</strong> ${carta.nome}<br><em>${carta.significado}</em>`;
+        resultado.appendChild(div);
+      });
+    }
+  </script>
+</body>
+</html>
